@@ -3,19 +3,19 @@ services:
   history:
    build: ./docker/history
    environment:
-     steemnode: "node.steem.ws"
+     steemnode: "localhost"
    links:
      - mongo
   sync:
    build: ./docker/sync
    environment:
-     steemnode: "node.steem.ws"
+     steemnode: "localhost"
    links:
      - mongo
   witnesses:
    build: ./docker/witnesses
    environment:
-     steemnode: "node.steem.ws"
+     steemnode: "localhost"
    links:
      - mongo
   development:
@@ -44,4 +44,3 @@ services:
       - history
       - sync
       - witnesses
-    

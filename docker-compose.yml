@@ -1,23 +1,23 @@
 version: '2'
 services:
-  # history:
-  #   build: ./docker/history
-  #   environment:
-  #     steemnode: "node.steem.ws"
-  #   links:
-  #     - mongo
-  # sync:
-  #   build: ./docker/sync
-  #   environment:
-  #     steemnode: "node.steem.ws"
-  #   links:
-  #     - mongo
-  # witnesses:
-  #   build: ./docker/witnesses
-  #   environment:
-  #     steemnode: "node.steem.ws"
-  #   links:
-  #     - mongo
+  history:
+   build: ./docker/history
+   environment:
+     steemnode: "node.steem.ws"
+   links:
+     - mongo
+  sync:
+   build: ./docker/sync
+   environment:
+     steemnode: "node.steem.ws"
+   links:
+     - mongo
+  witnesses:
+   build: ./docker/witnesses
+   environment:
+     steemnode: "node.steem.ws"
+   links:
+     - mongo
   development:
     build: ./docker/development
     links:
@@ -38,3 +38,10 @@ services:
     ports:
       - "27017:27017"
     command: --smallfiles --rest
+  steem
+    image: teego/steem-wallet
+    links: 
+      - history
+      - sync
+      - witnesses
+    

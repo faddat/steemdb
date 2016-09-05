@@ -38,7 +38,7 @@ services:
     ports:
       - "27017:27017"
     command: --smallfiles --rest
-  steem
+  steem:
     image: teego/steem-wallet
     links: 
       - history
